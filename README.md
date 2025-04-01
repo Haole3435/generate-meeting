@@ -114,6 +114,8 @@ generate-meeting/
 ├── app/
 │   ├── backend/
 │   │   └── main.py
+│   │   └── __init__.py
+│   │   └── output
 │   ├── core/
 │   │   ├── chains.py
 │   │   ├── models.py
@@ -122,11 +124,9 @@ generate-meeting/
 │   │   └── main.py
 │   └── schemas/
 │       └── model.py
-├── docker/
-│   ├── backend.Dockerfile
-│   ├── frontend.Dockerfile
-│   └── docker-compose.yml
-├── outputs/
+├
+│Dockerfile
+│docker-compose.yml
 ├── requirements.txt
 └── .env
 ```
