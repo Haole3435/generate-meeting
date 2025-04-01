@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  backend:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: uvicorn app.backend.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - redis
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: streamlit run app/frontend/main.py
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    depends_on:
+      - backend
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
